@@ -25,8 +25,9 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com/
+          
       - run: cd app && npm ci
       - run: zip -r publish.zip ./app*/
-      - run: aws lambda update-function-code --function-name=app
+      - run: aws lambda update-function-code --function-name=express-ExpressFunction-bWQZyOAkihq7 --zip-file=file://publish.zip
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
