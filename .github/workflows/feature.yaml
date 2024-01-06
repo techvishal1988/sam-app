@@ -6,11 +6,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-              echo ello 123
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [14.x.1.1]
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
